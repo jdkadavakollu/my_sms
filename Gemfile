@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # For exejs
 gem 'therubyracer', platforms: :ruby
 
+# Debugging
+gem 'pry'
+
 # Use for postgresql
 gem 'pg', '~> 0.18.4'
 

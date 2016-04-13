@@ -14,7 +14,12 @@ class User < ActiveRecord::Base
   ROLES = %w( super_admin admin)
 
   #default role
-  def set_dafault_role
+  def set_default_role
   	self.role ||= Role.find_by_name('admin')
+  end
+  
+  # fullname
+  def full_name
+    "#{first_name} #{last_name}".titleize
   end
 end

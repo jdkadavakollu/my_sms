@@ -29,6 +29,9 @@ gem 'therubyracer', platforms: :ruby
 # Use for postgresql
 gem 'pg', '~> 0.18.4'
 
+# Use for devise
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

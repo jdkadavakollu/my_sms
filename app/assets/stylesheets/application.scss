@@ -1,0 +1,17 @@
+// Using 'Flatly' bootswatch theme
+
+//Import bootstrap-sprockets
+@import "bootstrap-sprockets";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Import flatly variables
+@import "bootswatch/cosmo/variables";
+
+
+// And finally bootswatch style itself
+@import "bootswatch/cosmo/bootswatch";
+
+// font awsome icons
+@import 'font-awesome';

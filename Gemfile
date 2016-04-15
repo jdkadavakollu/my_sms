@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use for simple form
 gem 'simple_form', '~> 3.1.1'
 
+# User fo authentication
+gem 'cancan', '~> 1.6.10'
+
 # Use for Bootstrap
 gem 'bootstrap-sass', '~> 3.3.5.1'
 

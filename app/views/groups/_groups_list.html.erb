@@ -11,8 +11,8 @@
         <td><%= group.contacts.count %></td>
         <td>
           <%=link_to 'show', group_path(group), class: 'btn btn-info' %>
-          <%=link_to 'edit', group_path(group), class: 'btn btn-warning' %>
-          <%=link_to 'destroy', group_path(group), class: 'btn btn-danger' %>
+          <%=link_to 'edit', edit_group_path(group), class: 'btn btn-warning',remote: true %>
+          <%=link_to 'destroy', group_path(group), class: 'btn btn-danger',method: :delete,data: {alert: 'Are you sure?'} %>
         </td>
       </tr>
     <%end%>

@@ -1,9 +1,8 @@
 class GroupsController < ApplicationController
-  before_action :set_group,only: [:show, :edit]
+  before_action :set_group,only: [:show, :edit, :update, :destroy]
   def index
     @groups = Group.accessible_by(current_ability)
-    @new_group = Group.new 
-    #binding.pry
+    @group = params[:group] ? Group.find(params[:group]) : Group.new 
 
     respond_to do |format|
       format.html
@@ -15,6 +14,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    redirect_to groups_path(group: @group.id)
   end
 
   def create
@@ -24,14 +24,24 @@ class GroupsController < ApplicationController
     flash[:notice] = "Group successfully created"
     redirect_to groups_path
   else
-    binding.pry
-    redirect_to groups_path(new_group: @group)
+    redirect_to groups_path
   end
   end
 
   def update
+    if @group.update_attributes(group_params)
+      flash[:notice] = 'Group successfully updated'
+      redirect_to groups_path
+    else
+      redirect_to groups_path
+    end
   end
 
+  def destroy
+    @group.destroy
+    flash[:notice] = "Group successfully deleted."
+    redirect_to groups_path
+  end
   private
   
   def set_group

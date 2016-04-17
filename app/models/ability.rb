@@ -7,12 +7,12 @@ class Ability
     when 'super_admin'
       can :manage, :all
     when 'admin'
-      hr(user)
+      admin(user)
     end
   end
 
   # define ability for admin
-  def admin
+  def admin(user)
     can [:new, :create], Group
     can :index, Group, id: Group.where(user_id: user.id).ids
     can [:show, :edit, :update], Group, user_id: user.id

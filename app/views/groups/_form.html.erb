@@ -1,0 +1,12 @@
+<legend>New Group</legend>
+<%= simple_form_for(@new_group, remote: :true) do |f| %>
+  <% if @new_group.errors.any? %>
+    <ul>
+      <% @new_group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.input :name %>
+  <%= f.submit %>
+<%end%>

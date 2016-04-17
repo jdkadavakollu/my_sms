@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>MySms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,6 +10,10 @@
 <body>
   <%= render "nav_bar" %>
   <%= render "flash_messages" %>
-  <%= yield %>
+  <div class="row">
+    <div class="well col-md-10 col-md-offset-1">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

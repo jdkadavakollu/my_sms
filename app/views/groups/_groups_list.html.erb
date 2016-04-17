@@ -1,0 +1,21 @@
+<table class='table'>
+  <thead>
+    <th>Group</th>
+    <th>Contacts</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.name %></td>
+        <td><%= group.contacts.count %></td>
+        <td>
+          <%=link_to 'show', group_path(group), class: 'btn btn-info' %>
+          <%=link_to 'edit', group_path(group), class: 'btn btn-warning' %>
+          <%=link_to 'destroy', group_path(group), class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+  

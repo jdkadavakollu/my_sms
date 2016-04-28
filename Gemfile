@@ -20,6 +20,9 @@ gem 'simple_form', '~> 3.1.1'
 # User fo authentication
 gem 'cancan', '~> 1.6.10'
 
+# Use for pagination in index page
+gem 'kaminari', '~> 0.16.3'
+
 # Use for Bootstrap
 gem 'bootstrap-sass', '~> 3.3.5.1'
 

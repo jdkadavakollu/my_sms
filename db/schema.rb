@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20160414092337) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
-    t.integer  "mobile"
+    t.integer  "mobile",     limit: 8
     t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "contacts", ["group_id"], name: "index_contacts_on_group_id", using: :btree

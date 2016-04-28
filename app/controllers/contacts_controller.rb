@@ -1,4 +1,8 @@
 class ContactsController < ApplicationController
+
+  def index
+    @contacts = Contact.all.page(params[:page]).per(10)
+  end
   def new
     @contact = Contact.new
   end

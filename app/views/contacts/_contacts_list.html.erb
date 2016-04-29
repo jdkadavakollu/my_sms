@@ -1,4 +1,4 @@
-<table class='table'>
+<table class='table table-striped table-responsive table-bordered'>
   <thead>
     <th>Name</th>
     <th>Mobile</th>
@@ -13,7 +13,7 @@
   </tbody>
 </table>
 <div class="text-center">
-    <div class="pagination pagination-sm text-align:center" id="candidates_paginator">
-      <%= paginate @contacts %>
+    <div >
+      <%= paginate @contacts , remote: true%>
     </div>
 </div>

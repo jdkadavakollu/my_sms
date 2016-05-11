@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   end
 
   resources :groups
-  resources :contacts
+  resources :contacts do
+    collection do
+      post 'import'
+    end
+  end
   resources :users
   
   # The priority is based upon order of creation: first created -> highest priority.

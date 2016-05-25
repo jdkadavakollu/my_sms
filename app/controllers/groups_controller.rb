@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :add_default_breadcrumb
   before_action :set_group,only: [:show, :edit, :update, :destroy]
   def index
     @groups = Group.accessible_by(current_ability)

@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :add_default_breadcrumb
 
   def index
     @contacts = Contact.all.page(params[:page]).per(10)

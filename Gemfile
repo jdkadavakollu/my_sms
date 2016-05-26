@@ -29,6 +29,8 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 # Use for Bootswatch
 gem 'bootswatch-rails', '~>3.3.5'
 
+gem 'breadcrumbs_on_rails', '~> 2.3'
+
 # Font awesome plugins for rails
 gem 'font-awesome-rails', '~> 4.4.0.0'
 

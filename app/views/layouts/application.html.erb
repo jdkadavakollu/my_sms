@@ -9,13 +9,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "nav_bar" %>
+  <!-- Wrapper-->
+    <div id="wrapper">
+  <!-- <%= render "nav_bar" %> -->
+  <%= render 'layouts/navigation' %>
   <%= render "flash_messages" %>
-  <%= render 'layouts/breadcrumbs' %>
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <%= yield %>
-    </div>
+  <!-- <%= render 'layouts/breadcrumbs' %> -->
+  <div id="page-wrapper" class="gray-bg">
+    <%= render 'layouts/topnavbar' %>
+    <%= yield %>
+  </div>
   </div>
 </body>
 </html>

@@ -1,9 +1,3 @@
-<% if @group.persisted? %>
-  <legend>Edit Group</legend>
-<% else %>  
-  <legend>New Group</legend>
-<%end%>
-
 <%= simple_form_for(@group, remote: :true) do |f| %>
   <%= f.input :name %>
   <% if @group_errors %>

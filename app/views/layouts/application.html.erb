@@ -11,14 +11,15 @@
 <body>
   <!-- Wrapper-->
     <div id="wrapper">
-  <!-- <%= render "nav_bar" %> -->
-  <%= render 'layouts/navigation' %>
-  <%= render "flash_messages" %>
-  <!-- <%= render 'layouts/breadcrumbs' %> -->
-  <div id="page-wrapper" class="gray-bg">
-    <%= render 'layouts/topnavbar' %>
-    <%= yield %>
-  </div>
-  </div>
+      <% if current_user %>
+        <%= render 'layouts/navigation' %>
+        <%= render "flash_messages" %>
+        <!-- <%= render 'layouts/breadcrumbs' %> --> 
+        <div id="page-wrapper" class="gray-bg">
+          <%= render 'layouts/topnavbar' %>
+      <% end %>
+      <%= yield %>
+      </div>
+    </div>
 </body>
 </html>

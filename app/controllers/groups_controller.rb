@@ -15,6 +15,9 @@ class GroupsController < ApplicationController
   def new
   end
 
+  def show
+  end
+
   def edit
     redirect_to groups_path(group: @group.id)
   end

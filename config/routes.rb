@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
+  
   devise_for :users
   devise_scope :user do
     authenticated :user do
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+  resources :users, only: [:index]
 
   resources :groups
   resources :contacts do
@@ -18,7 +18,6 @@ Rails.application.routes.draw do
       post 'import'
     end
   end
-  resources :users
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

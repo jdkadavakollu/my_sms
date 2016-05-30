@@ -1,7 +1,33 @@
-<% add_breadcrumb_and_set_title 'Create new group' %>
-<div id="groups-list" class="col-md-8">
-  <%= render 'groups_list' %>
-</div>
-<div id="new-group" class="col-md-4">
-  <%= render 'form' %>
+<div class="wrapper wrapper-content">
+  <div class="row">
+	<% add_breadcrumb_and_set_title 'Create new group' %>
+	<div class="col-md-7">
+	  <div class="ibox float-e-margins">
+		<div class="ibox-title">
+	      <h3>Groups</h3>
+	    </div>
+	    <div class="ibox-content">
+		  <div id="groups-list" >
+		    <%= render 'groups_list' %>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="col-md-5">
+	  <div class="ibox float-e-margins">
+	    <div class="ibox-title">
+		  <% if @group.persisted? %>
+		    <h3>Edit Group</h3>
+		  <% else %>  
+		    <h3>New Group</h3>
+		  <%end%>
+	    </div>
+	    <div class="ibox-content">
+			<div id="new-group" >
+			  <%= render 'form' %>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </div>
 </div>

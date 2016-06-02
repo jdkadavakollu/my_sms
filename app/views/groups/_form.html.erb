@@ -1,5 +1,5 @@
 <%= simple_form_for(@group, remote: :true) do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name ,class: 'form-control', required: true%>
   <% if @group_errors %>
     <ul>
       <% @group_errors.each do |msg| %>

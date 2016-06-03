@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414092337) do
+ActiveRecord::Schema.define(version: 20160603084027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,20 @@ ActiveRecord::Schema.define(version: 20160414092337) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "template_items", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "templates", force: :cascade do |t|
+    t.integer  "template_item_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "templates", ["template_item_id"], name: "index_templates_on_template_item_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -67,4 +81,5 @@ ActiveRecord::Schema.define(version: 20160414092337) do
 
   add_foreign_key "contacts", "groups"
   add_foreign_key "groups", "users"
+  add_foreign_key "templates", "template_items"
 end

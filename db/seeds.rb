@@ -12,4 +12,7 @@ User::ROLES.each do |role|
   Role.find_or_create_by(name: role)
 end
 
+TemplateItem::ITEMS.each do |item|
+  TemplateItem.find_or_create_by(name: item)
+end
 puts 'seeding done.'

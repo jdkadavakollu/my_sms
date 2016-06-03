@@ -1,6 +1,7 @@
+# Groups controller
 class GroupsController < ApplicationController
   before_action :add_default_breadcrumb
-  before_action :set_group,only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
   def index
     @groups = Group.accessible_by(current_ability)
     @group = params[:group] ? Group.find(params[:group]) : Group.new
@@ -16,6 +17,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @contacts = @group.contacts
   end
 
   def edit

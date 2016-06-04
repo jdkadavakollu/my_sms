@@ -1,11 +1,22 @@
-<%= simple_form_for(@group, remote: :true) do |f| %>
-  <%= f.input :name ,class: 'form-control', required: true%>
-  <% if @group_errors %>
-    <ul>
-      <% @group_errors.each do |msg| %>
-        <li style='color: red;'><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <%= f.submit %>
-<%end%>
+<div class="ibox float-e-margins">
+	<div class="ibox-title">
+	  <% if @group.persisted? %>
+	    <h3>Edit Group</h3>
+	  <% else %>  
+	    <h3>New Group</h3>
+	  <%end%>
+	</div>
+	<div class="ibox-content">
+		<%= simple_form_for(@group, remote: :true) do |f| %>
+		  <%= f.input :name ,class: 'form-control', required: true%>
+		  <% if @group_errors %>
+		    <ul>
+		      <% @group_errors.each do |msg| %>
+		        <li style='color: red;'><%= msg %></li>
+		      <% end %>
+		    </ul>
+		  <% end %>
+		  <%= f.submit %>
+		<%end%>
+	</div>
+</div>

@@ -1,5 +1,5 @@
 class Section < ActiveRecord::Base
   belongs_to :course
 
-  valdates :name, presence: true
+  validates :name, presence: true
 end

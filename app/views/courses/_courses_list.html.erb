@@ -1,0 +1,21 @@
+<table class='table'>
+  <thead>
+    <th>Class</th>
+    <th>Sections</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.name %></td>
+        <td><%= course.sections.count %></td>
+        <td>
+          <%=link_to 'show', course_path(course), class: 'btn btn-info' %>
+          <%=link_to 'edit', edit_course_path(course), class: 'btn btn-warning',remote: true %>
+          <%=link_to 'destroy', course_path(course), method: :delete, data: {confirm: 'Are you sure?'} %>
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+  

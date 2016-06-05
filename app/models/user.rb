@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   belongs_to :role
   has_many :groups
   has_many :sms_groups
+  has_many :courses
+  has_many :sections
+  has_many :students
   before_create :set_default_role
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validates :first_name, presence: true

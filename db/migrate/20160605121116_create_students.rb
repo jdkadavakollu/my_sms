@@ -8,6 +8,7 @@ class CreateStudents < ActiveRecord::Migration
       t.date :dob
       t.text :address
       t.references :user, index: true, foreign_key: true
+      t.references :section, index: true, foreign_key: true
 
       t.timestamps null: false
     end

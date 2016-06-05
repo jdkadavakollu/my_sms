@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414092337) do
+ActiveRecord::Schema.define(version: 20160604154715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,11 +35,29 @@ ActiveRecord::Schema.define(version: 20160414092337) do
 
   add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "sms_group_id"
+    t.integer  "contact_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "messages", ["contact_id"], name: "index_messages_on_contact_id", using: :btree
+  add_index "messages", ["sms_group_id"], name: "index_messages_on_sms_group_id", using: :btree
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "sms_groups", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sms_groups", ["user_id"], name: "index_sms_groups_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -67,4 +85,7 @@ ActiveRecord::Schema.define(version: 20160414092337) do
 
   add_foreign_key "contacts", "groups"
   add_foreign_key "groups", "users"
+  add_foreign_key "messages", "contacts"
+  add_foreign_key "messages", "sms_groups"
+  add_foreign_key "sms_groups", "users"
 end

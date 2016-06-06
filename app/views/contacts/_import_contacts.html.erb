@@ -1,4 +1,4 @@
 <%= form_tag import_contacts_path, multipart: true do %>
-  <%= file_field_tag :file %>
+  <%= file_field_tag :file, required: true %>
   <%= submit_tag 'Upload contacts' %>
 <%end%>

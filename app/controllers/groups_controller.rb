@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @contacts = @group.contacts
+    @contacts = @group.contacts.page(params[:page]).per(10)
   end
 
   def edit

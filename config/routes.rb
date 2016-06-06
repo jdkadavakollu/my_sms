@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'sms/index'
+
   devise_for :users
   devise_scope :user do
     authenticated :user do
@@ -18,6 +20,9 @@ Rails.application.routes.draw do
       post 'import'
     end
   end
+  resources :courses
+  resources :sections
+  resources :students
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

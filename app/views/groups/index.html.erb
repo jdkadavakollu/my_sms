@@ -14,20 +14,9 @@
 	  </div>
 	</div>
 	<div class="col-md-5">
-	  <div class="ibox float-e-margins">
-	    <div class="ibox-title">
-		  <% if @group.persisted? %>
-		    <h3>Edit Group</h3>
-		  <% else %>  
-		    <h3>New Group</h3>
-		  <%end%>
-	    </div>
-	    <div class="ibox-content">
-			<div id="new-group" >
-			  <%= render 'form' %>
-			</div>
+		<div id="new-group" >
+		  <%= render 'form' %>
 		</div>
-	  </div>
 	</div>
   </div>
 </div>

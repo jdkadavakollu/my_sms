@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160605121116) do
   add_index "students", ["section_id"], name: "index_students_on_section_id", using: :btree
   add_index "students", ["user_id"], name: "index_students_on_user_id", using: :btree
 
+<<<<<<< HEAD
   create_table "template_items", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -107,6 +108,8 @@ ActiveRecord::Schema.define(version: 20160605121116) do
 
   add_index "templates", ["template_item_id"], name: "index_templates_on_template_item_id", using: :btree
 
+=======
+>>>>>>> theme_integration
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -140,5 +143,8 @@ ActiveRecord::Schema.define(version: 20160605121116) do
   add_foreign_key "sms_groups", "users"
   add_foreign_key "students", "sections"
   add_foreign_key "students", "users"
+<<<<<<< HEAD
   add_foreign_key "templates", "template_items"
+=======
+>>>>>>> theme_integration
 end

@@ -7,12 +7,10 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= group.name %></td>
+        <td><%= link_to group.name, group_path(group)%></td>
         <td><%= group.contacts.count %></td>
         <td>
-          <%=link_to 'show', group_path(group), class: 'btn btn-info' %>
           <%=link_to 'edit', edit_group_path(group), class: 'btn btn-warning',remote: true %>
-          <%=link_to 'destroy', group_path(group), method: :delete, data: {confirm: 'Are you sure?'} %>
         </td>
       </tr>
     <%end%>

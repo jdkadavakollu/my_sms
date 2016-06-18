@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_action :add_default_breadcrumb
 
   def index
-    @contacts = Contact.all.page(params[:page]).per(10)
+    @contacts = Contact.accessible_by(current_ability).page(params[:page]).per(10)
     @contact = Contact.new
     respond_to do |format|
       format.html
@@ -22,6 +22,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    @contact.user_id = current_user.id
     if @contact.save
       redirect_to :back
     else

@@ -20,11 +20,13 @@ ActiveRecord::Schema.define(version: 20160605121116) do
     t.string   "name"
     t.integer  "mobile",     limit: 8
     t.integer  "group_id"
+    t.integer  "user_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
   add_index "contacts", ["group_id"], name: "index_contacts_on_group_id", using: :btree
+  add_index "contacts", ["user_id"], name: "index_contacts_on_user_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -132,6 +134,7 @@ ActiveRecord::Schema.define(version: 20160605121116) do
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
   add_foreign_key "contacts", "groups"
+  add_foreign_key "contacts", "users"
   add_foreign_key "courses", "users"
   add_foreign_key "groups", "users"
   add_foreign_key "messages", "contacts"

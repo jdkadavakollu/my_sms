@@ -8,7 +8,11 @@
 	    </div>
 	    <div class="ibox-content">
 		  <div id="groups-list" >
-		    <%= render 'groups_list' %>
+		    <% if @groups.empty? %>
+ 			  <h3> No Groups available </h3>
+		    <% else %>
+		      <%= render 'groups_list' %>
+		    <% end %>
 		  </div>
 		</div>
 	  </div>

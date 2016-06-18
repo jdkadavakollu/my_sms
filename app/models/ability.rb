@@ -16,5 +16,8 @@ class Ability
     can [:new, :create], Group
     can :index, Group, id: Group.where(user_id: user.id).ids
     can [:show, :edit, :update], Group, user_id: user.id
+    can [:new, :create], Contact
+    can :index, Contact, id: Contact.where(user_id: user.id).ids
+    can [:show, :edit, :update], Contact, user_id: user.id
   end
 end

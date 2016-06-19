@@ -70,7 +70,7 @@ group :development, :test do
 end
 
 group :production do 
-  gem 'unicorn-worker-killer'
+  # gem 'unicorn-worker-killer'
 end
 
 group :development do

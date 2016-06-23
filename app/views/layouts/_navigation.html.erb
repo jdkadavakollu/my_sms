@@ -34,6 +34,11 @@
                 <i class="fa fa-columns"></i> <span class="nav-label">Contacts</span>
                 <% end %>
             </li>
+            <li class="<%= 'active' if current_page?('/sms_groups/new') %>">
+                <%= link_to new_sms_group_path do %>
+                <i class="fa fa-columns"></i> <span class="nav-label">SMS</span>
+                <% end %>
+            </li>
             <li class="<%= 'active' if current_page?('/courses') %>">
                 <%= link_to courses_path do %>
                 <i class="fa fa-columns"></i> <span class="nav-label">Courses</span>

@@ -4,11 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :role
-  has_many :groups
-  has_many :sms_groups
-  has_many :courses
-  has_many :sections
-  has_many :students
+  has_many :groups, dependent: :destroy
+  has_many :contacts, dependent: :destroy
+  has_many :sms_groups, dependent: :destroy
+  has_many :courses, dependent: :destroy
+  has_many :sections, dependent: :destroy
+  has_many :students, dependent: :destroy
   before_create :set_default_role
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validates :first_name, presence: true

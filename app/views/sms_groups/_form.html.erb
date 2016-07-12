@@ -1,6 +1,6 @@
-<%= form_tag('#') do %>
+<%= form_tag(send_sms_sms_groups_path) do %>
   <div class="form-group">
-    <%= text_area_tag 'body', nil, rows: 5, cols: 40, class: 'form-control', required: true %>
+    <%= text_area_tag 'message', nil, rows: 5, cols: 40, class: 'form-control', required: true %>
   </div>
   <div class="form-group">
     <%= submit_tag 'Send SMS', class: 'btn btn-primary'%>

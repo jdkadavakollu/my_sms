@@ -20,7 +20,12 @@ Rails.application.routes.draw do
       post 'import'
     end
   end
-  resources :sms_groups
+  resources :sms_groups do
+    collection do
+      post 'send_sms'
+    end
+  end
+
   resources :courses
   resources :sections
   resources :students

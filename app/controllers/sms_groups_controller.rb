@@ -9,6 +9,7 @@ class SmsGroupsController < ApplicationController
   def create
   end
 
-  def update
+  def send_sms
+  	binding.pry
   end
 end

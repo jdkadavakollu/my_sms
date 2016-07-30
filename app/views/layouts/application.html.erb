@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My-SMS <%= yield(:title) %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "GentelellaOnRails" %> </title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
-<body>
-  <!-- Wrapper-->
-    <div id="wrapper">
-      <% if current_user %>
-        <%= render 'layouts/navigation' %>
-        <%= render "flash_messages" %>
-        <!-- <%= render 'layouts/breadcrumbs' %> --> 
-        <div id="page-wrapper" class="gray-bg">
-          <%= render 'layouts/topnavbar' %>
-      <% end %>
-      <%= yield %>
-      </div>
-    </div>
+
+<body class="nav-md">
+  <div class="container body">
+    <% if current_user %>
+    <% flash.each do |key, value| %>
+        <div align="center" id="flash" class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
+  <%= render "partials/sidenav" %>
+  <%= render "partials/topnav" %>
+  <% end %>
+<div class="right_col" role="main">
+<%= yield %>
+</div>
+
+
+  <%= javascript_include_tag 'footermanifest', 'data-turbolinks-track' => true %>
+</div>
 </body>
 </html>

@@ -1,12 +1,12 @@
-<div class="ibox float-e-margins">
-	<div class="ibox-title">
+<div class="x_panel tile">
+	<div class="x_title">
 	  <% if @section.persisted? %>
 	    <h3>Edit Section</h3>
 	  <% else %>  
 	    <h3>New Section</h3>
 	  <%end%>
 	</div>
-	<div class="ibox-content">
+	<div class="x_content">
 		<%= form_for @section, remote: :true, html: { multipart: true, class: 'form-horizontal'} do |f| %>
 		  <div class="form-group">
 		    <label class="col-md-2 control-label">Name</label>
